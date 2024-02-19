@@ -5,9 +5,12 @@
   font-family: sans-serif;
 }
 
-button, input {
+button,
+input {
   outline: none;
   padding: 10px;
+  border-radius: 3%;
+  border: 0;
 }
 
 .container {
