@@ -11,23 +11,28 @@ const section = document.getElementsByClassName("section")[0];
 const api = 'https://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=';
 
 async function fetchData(url) {
-    const response = await (await fetch(url)).json();
-    place.innerHTML = response.location.name;
-    wether.innerHTML = response.current.condition.text;
-    temperature.innerHTML = ` ${response.current.temp_c}&deg`;
-    const d = new Date(response.location.localtime);
-    let day = d.getDay()
-    let date = d.getDate()
-    let month = d.getMonth()
-    currentDate.innerHTML = `${dayCollection[day]}, ${date} ${monthCollection[month]}`;
-    let rainSun = (response.current.condition.text).toLowerCase();
-    if (d.getHours() > 18 || d.getHours() < 5) {
-        section.classList.remove(section.classList[1]);
-        section.classList.add('night-section');
+    try {
+        const response = await (await fetch(url)).json();
+        place.innerHTML = response.location.name;
+        wether.innerHTML = response.current.condition.text;
+        temperature.innerHTML = ` ${response.current.temp_c}&deg`;
+        const d = new Date(response.location.localtime);
+        let day = d.getDay()
+        let date = d.getDate()
+        let month = d.getMonth()
+        currentDate.innerHTML = `${dayCollection[day]}, ${date} ${monthCollection[month]}`;
+        let rainSun = (response.current.condition.text).toLowerCase();
+        if (d.getHours() > 18 || d.getHours() < 5) {
+            section.classList.remove(section.classList[1]);
+            section.classList.add('night-section');
+        }
+        else if (rainSun == "cloudy" || rainSun == "rainy" || rainSun == "light rain" || rainSun == "overcast" || rainSun == "thunder" || rainSun == "partly cloudy") {
+            section.classList.remove(section.classList[1]);
+            section.classList.add('rainy-section');
+        }
     }
-    else if (rainSun == "cloudy" || rainSun == "rainy" || rainSun == "light rain" || rainSun == "overcast" || rainSun == "thunder" || rainSun == "partly cloudy") {
-        section.classList.remove(section.classList[1]);
-        section.classList.add('rainy-section');
+    catch(e){
+        console.log(`Error : ${e}`)
     }
 }
 
