@@ -15,10 +15,10 @@ function putData(response) {
     place.innerText = response.location.name;
     wether.innerText = response.current.condition.text;
     temperature.innerHTML = `${response.current.temp_c}&deg`;
-    const d = new Date(response.location.localtime);
-    let day = d.getDay()
-    let date = d.getDate()
-    let month = d.getMonth()
+    const locationDate = new Date(response.location.localtime);
+    let day = locationDate.getDay()
+    let date = locationDate.getDate()
+    let month = locationDate.getMonth()
     let rainSun = (response.current.condition.text).toLowerCase();
 
     currentDate.innerText = `${dayCollection[day]}, ${date} ${monthCollection[month]}`;
@@ -27,7 +27,7 @@ function putData(response) {
         section.classList.replace(section.classList[1], 'rainy-section');
     }
 
-    else if (d.getHours() >= 20 || d.getHours() < 5) {
+    else if (locationDate.getHours() >= 20 || locationDate.getHours() < 5) {
         section.classList.replace(section.classList[1], 'night-section');
     }
 
