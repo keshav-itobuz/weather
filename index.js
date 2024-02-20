@@ -52,17 +52,20 @@ async function fetchData(url) {
         section.style.display = "none";
     }
 }
-section.style.display = "none";
-findButton.addEventListener('click', (e) => {
-    const query = search.value;
-    const url = `${api}${query}&aqi=no`;
-    fetchData(url);
-})
-
-search.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
+(() => {
+    section.style.display = "none";
+    findButton.addEventListener('click', (e) => {
         const query = search.value;
         const url = `${api}${query}&aqi=no`;
         fetchData(url);
-    }
-})
+    })
+
+    search.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const query = search.value;
+            const url = `${api}${query}&aqi=no`;
+            fetchData(url);
+        }
+    })
+
+})();
