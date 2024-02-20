@@ -42,23 +42,17 @@ async function fetchData(url) {
         if (!res.ok) {
             alert("City doesn't exist");
         }
-
         const response = await res.json();
         putData(response);
-        locationIcon.style.display = "inline"
-
+        section.style.display = "block";
     }
 
     catch (e) {
         console.log(`Error : ${e}`)
-        currentDate.innerText = "";
-        place.innerText = "";
-        wether.innerText = "";
-        temperature.innerHTML = "";
-        locationIcon.style.display = "none"
+        section.style.display = "none";
     }
 }
-
+section.style.display = "none";
 findButton.addEventListener('click', (e) => {
     const query = search.value;
     const url = `${api}${query}&aqi=no`;

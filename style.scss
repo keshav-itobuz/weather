@@ -13,7 +13,7 @@ $sun-rays1: #a0d7fe;
 $sun-rays2: #aadbfa;
 $sun-rays-light1: #7ec8ff;
 $sun-rays-light2: #a7dbff;
-$background-color: #bfd9fc;
+$background-color: rgb(37, 36, 36);
 @mixin size($height, $width) {
   height: $height;
   width: $width;
@@ -47,6 +47,7 @@ button {
 .search-container {
   display: flex;
   width: 35%;
+  gap: 5px;
 }
 .container {
   @include size(100vh, 100vw);
