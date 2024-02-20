@@ -5,20 +5,28 @@
   font-family: sans-serif;
 }
 
-button,
 input {
   outline: none;
   padding: 15px;
-  border-radius: 3%;
+  border-radius: 50px 50px;
   border: 0;
+  width: 100%;
 }
 
 button {
+  outline: none;
+  padding: 15px 40px;
+  border-radius: 50px 50px;
+  border: 0;
   background-color: #cdb4db;
-  border-radius: 10%;
 }
 button:hover {
   cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  width: 35%;
 }
 
 .container {
@@ -133,7 +141,7 @@ hr {
   height: 8px;
   width: 8px;
   background-color: rgba(255, 255, 255, 0.3333333333);
-  opacity: 0.8;
+  opacity: 0.7;
   box-shadow: 0 0 8px white;
   margin-bottom: 35px;
 }
@@ -160,7 +168,7 @@ hr {
 }
 
 .rainy-section {
-  background: linear-gradient(to right, #2d63f6, #5f6cec, #8073e3, #b981da);
+  background: linear-gradient(to right, #04bea6, #23cea4, #47dfa4, #6ef1a4);
 }
 .rainy-section .sunny,
 .rainy-section .night {
@@ -169,7 +177,7 @@ hr {
 .rainy-section .rain-drop {
   height: 20px;
   margin-bottom: 25px;
-  opacity: 0.1;
+  opacity: 0.14;
 }
 
 .rainy-cloud {
@@ -182,7 +190,7 @@ hr {
 .thunder {
   position: absolute;
   right: 10%;
-  top: 58%;
+  top: 62%;
   height: 40px;
 }
 
@@ -217,16 +225,16 @@ hr {
 }
 
 .cloud-drop1 {
-  top: 57%;
+  top: 59%;
   right: 8%;
 }
 
 .cloud-drop2 {
-  top: 57%;
+  top: 59%;
   right: 18%;
 }
 
 .cloud-drop3 {
-  top: 57%;
+  top: 59%;
   right: 25%;
 }/*# sourceMappingURL=style.css.map */

@@ -19,14 +19,18 @@ function putData(response) {
     let day = d.getDay()
     let date = d.getDate()
     let month = d.getMonth()
-    currentDate.innerText = `${dayCollection[day]}, ${date} ${monthCollection[month]}`;
     let rainSun = (response.current.condition.text).toLowerCase();
-    if (rainSun == "cloudy" || rainSun == "rainy" || rainSun == "light rain" || rainSun == "overcast" || rainSun == "thunder" || rainSun == "partly cloudy" || rainSun == "mist") {
+
+    currentDate.innerText = `${dayCollection[day]}, ${date} ${monthCollection[month]}`;
+
+    if (rainSun === "cloudy" || rainSun === "rainy" || rainSun === "light rain" || rainSun === "overcast" || rainSun === "thunder" || rainSun === "partly cloudy" || rainSun === "mist") {
         section.classList.replace(section.classList[1], 'rainy-section');
     }
+
     else if (d.getHours() >= 20 || d.getHours() < 5) {
         section.classList.replace(section.classList[1], 'night-section');
     }
+
     else {
         section.classList.replace(section.classList[1], 'sunny-section');
     }
@@ -38,11 +42,13 @@ async function fetchData(url) {
         if (!res.ok) {
             alert("City doesn't exist");
         }
+
         const response = await res.json();
         putData(response);
         locationIcon.style.display = "inline"
 
     }
+
     catch (e) {
         console.log(`Error : ${e}`)
         currentDate.innerText = "";

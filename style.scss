@@ -1,14 +1,14 @@
-$sunny-section-color1: #1e94fe;
-$sunny-section-color2: #49aeff;
-$sunny-section-color3: #5bb8fe;
-$night-section-color1: #2d63f6;
-$night-section-color2: #5f6cec;
-$night-section-color3: #8073e3;
-$night-section-color4: #b981da;
-$rainy-section-color1: #04bea6;
-$rainy-section-color2: #23cea4;
-$rainy-section-color3: #47dfa4;
-$rainy-section-color4: #6ef1a4;
+$sunny-section-dark: #1e94fe;
+$sunny-section-light: #49aeff;
+$sunny-section-lighter: #5bb8fe;
+$night-section-blue: #2d63f6;
+$night-section-blue-light: #5f6cec;
+$night-section-purple: #8073e3;
+$night-section-purple-light: #b981da;
+$rainy-section-dark: #04bea6;
+$rainy-section-light: #23cea4;
+$rainy-section-lighter: #47dfa4;
+$rainy-section-lightest: #6ef1a4;
 $sun-rays1: #a0d7fe;
 $sun-rays2: #aadbfa;
 $sun-rays-light1: #7ec8ff;
@@ -26,21 +26,28 @@ $background-color: #bfd9fc;
   font-family: sans-serif;
 }
 
-button,
 input {
   outline: none;
   padding: 15px;
-  border-radius: 3%;
+  border-radius: 50px 50px;
   border: 0;
+  width: 100%;
 }
 button {
+  outline: none;
+  padding: 15px 40px;
+  border-radius: 50px 50px;
+  border: 0;
   background-color: #cdb4db;
-  border-radius: 10%;
   &:hover {
     cursor: pointer;
   }
 }
 
+.search-container {
+  display: flex;
+  width: 35%;
+}
 .container {
   @include size(100vh, 100vw);
   display: flex;
@@ -100,9 +107,9 @@ hr {
 .sunny-section {
   background: linear-gradient(
     to right,
-    $sunny-section-color1,
-    $sunny-section-color2,
-    $sunny-section-color3
+    $sunny-section-dark,
+    $sunny-section-light,
+    $sunny-section-lighter
   );
 
   .night,
@@ -156,10 +163,10 @@ hr {
 .night-section {
   background: linear-gradient(
     to right,
-    $night-section-color1,
-    $night-section-color2,
-    $night-section-color3,
-    $night-section-color4
+    $night-section-blue,
+    $night-section-blue-light,
+    $night-section-purple,
+    $night-section-purple-light
   );
 
   .sunny,
@@ -172,7 +179,7 @@ hr {
     border-radius: 100%;
     @include size(8px, 8px);
     background-color: #fff5;
-    opacity: 0.8;
+    opacity: 0.7;
     box-shadow: 0 0 8px white;
     margin-bottom: 35px;
   }
@@ -209,10 +216,10 @@ hr {
 .rainy-section {
   background: linear-gradient(
     to right,
-    $night-section-color1,
-    $night-section-color2,
-    $night-section-color3,
-    $night-section-color4
+    $rainy-section-dark,
+    $rainy-section-light,
+    $rainy-section-lighter,
+    $rainy-section-lightest
   );
 
   .sunny,
@@ -223,7 +230,7 @@ hr {
   .rain-drop {
     height: 20px;
     margin-bottom: 25px;
-    opacity: 0.1;
+    opacity: 0.14;
   }
 }
 
@@ -237,7 +244,7 @@ hr {
 .thunder {
   position: absolute;
   right: 10%;
-  top: 58%;
+  top: 62%;
   height: 40px;
 }
 
@@ -271,16 +278,16 @@ hr {
 }
 
 .cloud-drop1 {
-  top: 57%;
+  top: 59%;
   right: 8%;
 }
 
 .cloud-drop2 {
-  top: 57%;
+  top: 59%;
   right: 18%;
 }
 
 .cloud-drop3 {
-  top: 57%;
+  top: 59%;
   right: 25%;
 }
