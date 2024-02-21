@@ -12,14 +12,21 @@ const dayCollection = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "
 const api = 'https://api.weatherapi.com/v1/current.json?key=0c80b2b56f1943ada19100744230103&q=';
 
 function putData(response) {
-    place.innerText = response.location.name;
-    wether.innerText = response.current.condition.text;
-    temperature.innerHTML = `${response.current.temp_c}&deg`;
-    const locationDate = new Date(response.location.localtime);
+    let {current , location} = response;
+    if(!current || !location){
+        alert("current or location object doesn't exists");
+        return;
+    }
+    let {name ,localtime } = location;
+    let {condition , temp_c} = current;
+    place.innerText = name;
+    wether.innerText = condition.text;
+    temperature.innerHTML = `${temp_c}&deg`;
+    const locationDate = new Date(localtime);
     let day = locationDate.getDay()
     let date = locationDate.getDate()
     let month = locationDate.getMonth()
-    let rainSun = (response.current.condition.text).toLowerCase();
+    let rainSun = (condition.text).toLowerCase();
 
     currentDate.innerText = `${dayCollection[day]}, ${date} ${monthCollection[month]}`;
 
